@@ -4,7 +4,8 @@
   "description": "a tutorial for webpack",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   "homepage": "https://github.com/fakefish/webpack-demo",
   "dependencies": {
     "node-libs-browser": "^0.5.2",
-    "webpack": "^1.10.1"
+    "webpack": "^1.10.1",
+    "webpack-dev-server": "^1.10.1"
   }
 }
