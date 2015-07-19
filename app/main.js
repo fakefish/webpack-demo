@@ -1,10 +1,35 @@
 'use strict';
 
-import React from 'react';
-import Hello from './modules/hello.jsx';
+var React = require('react');
+var Feed = require('./modules/feed.jsx')
 
-var old = require('./component.js');
+var App = React.createClass({
 
-document.getElementById('hello').appendChild(old());
+	getInitialState: function() {
+		return {
+			currentComponent: Feed
+		};
+	},
 
-React.render(<Hello />, document.getElementById('app'));
+	openProfile: function() {
+		var that = this;
+		require.ensure([], function() {
+			var Profile = require('./modules/profile.jsx');
+			that.setState({
+				currentComponent: Profile
+			});
+		});
+	},
+
+	render: function() {
+		return (
+			<div>
+      	<a onClick={this.openProfile}>toggle</a>
+      	<div>{this.state.currentComponent()}</div>
+      </div>
+		);
+	}
+
+});
+
+React.render(<App/>, document.getElementById('app'));
