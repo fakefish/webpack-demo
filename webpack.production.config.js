@@ -18,21 +18,21 @@ var config = {
 			exclude: [node_modules_dir],
 			loader: 'babel'
 		}, {
-				test: /\.css$/,
-				loader: 'style!css'
-			}, {
-				test: /\.s(a|c)ss$/,
-				loader: 'style!css!sass',
-			}, {
-				test: /\.less$/,
-				loader: 'style!css!less',
-			}, {
-				test: /\.(png|jpg)$/,
-				loader: 'url?limit=25000',
-			}, {
-				test: /\.woff$/,
-				loader: 'url?limit=100000'
-			}]
+			test: /\.css$/,
+			loader: 'style!css'
+		}, {
+			test: /\.s(a|c)ss$/,
+			loader: 'style!css!sass',
+		}, {
+			test: /\.less$/,
+			loader: 'style!css!less',
+		}, {
+			test: /\.(png|jpg)$/,
+			loader: 'url?limit=25000',
+		}, {
+			test: /\.woff$/,
+			loader: 'url?limit=100000'
+		}]
 	},
 	plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
